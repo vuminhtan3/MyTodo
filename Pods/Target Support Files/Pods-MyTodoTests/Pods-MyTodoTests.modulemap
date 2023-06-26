@@ -1,0 +1,6 @@
+framework module Pods_MyTodoTests {
+  umbrella header "Pods-MyTodoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
