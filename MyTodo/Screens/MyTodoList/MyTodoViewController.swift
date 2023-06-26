@@ -13,6 +13,7 @@ class MyTodoViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var greetingLb: UILabel!
     
     private var todoDataSource = [Todo]()
     private var selectedIndexPath: IndexPath?
@@ -28,6 +29,9 @@ class MyTodoViewController: UIViewController {
     }
     
     func setupView() {
+        // Greeting label
+        greetingLb.text = UserDefaultsService.shared.owner
+        
         //SearchBar
         searchBar.delegate = self
         searchBar.placeholder = "Search Todo"

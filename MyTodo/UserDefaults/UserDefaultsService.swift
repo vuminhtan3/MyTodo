@@ -13,6 +13,7 @@ class UserDefaultsService {
     
     private enum Keys: String {
         case kCompletedInputName
+        case kOwner
     }
     private init() {
     }
@@ -28,8 +29,19 @@ class UserDefaultsService {
         }
     }
     
+    var owner: String {
+        get {
+            return standard.string(forKey: Keys.kOwner.rawValue)!
+        }
+        set {
+            standard.set(newValue, forKey: Keys.kOwner.rawValue)
+            standard.synchronize()
+        }
+    }
+    
     func clearAll() {
         standard.removeObject(forKey: Keys.kCompletedInputName.rawValue)
+        standard.removeObject(forKey: Keys.kOwner.rawValue)
     }
     
 }

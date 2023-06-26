@@ -12,6 +12,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var warningLb: UILabel!
+    var owner: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,9 @@ class StartViewController: UIViewController {
             
         } else {
             warningLb.isHidden = true
+            owner = nameTF.text
             UserDefaultsService.shared.completedInputName = true
+            UserDefaultsService.shared.owner = "Hello, \(nameTF.text!)"
             routeToMain()
         }
         
